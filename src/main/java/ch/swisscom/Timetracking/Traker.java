@@ -1,9 +1,22 @@
 package ch.swisscom.Timetracking;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.validation.constraints.NotBlank;
+
+import org.springframework.data.annotation.Id;
+
+@Entity
 public class Traker {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	@NotBlank(message = "title is mandatory")
 	private String titel;
+	@NotBlank(message = "description is mandatory")
 	private String description;
+	@NotBlank(message = "link is mandatory")
 	private String link;
 
 	public Traker(long id, String titel, String description, String link) {

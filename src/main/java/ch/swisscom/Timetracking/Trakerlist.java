@@ -58,11 +58,14 @@ public class Trakerlist {
 	}
 	
 	//edit a traker
-	public  Object editTraker(long id) {
+	public   editTraker(long id) {
 		/*Man drückt einen knopf und wird auf eine neue Seite geleitet, wo man den traker
 		bearbeiten kann, der ersetzt dann den alten Traker.
 		*/
-		
-		return traker;
+		for(int i = 0;i<traker.size();i++) {
+           // traker.set(i, traker.get(i).concat("java"));
+
+		}
+    		return traker;
 	}
 }

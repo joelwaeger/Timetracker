@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -63,15 +64,21 @@ public class TimetrackingControler {
 		return "redirect:/timetraker";
 	}
 	//go to edittraker
-	@GetMapping("/edittraker")
-	public String editTraker() {
-		return "edittraker";
+	@GetMapping("/edit/{id}")
+	public String showUpdateForm(@PathVariable("id") long id, Model model) {
+	    Traker traker = trakerRepository.findById(id)
+	      .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+	     
+	    model.addAttribute("user", user);
+	    return "update-user";
 	}
 	
 	//for adding editing trakers
 	@RequestMapping(value = "/edit", method=RequestMethod.POST)
 	public String edittraker( Model model ) {
-		
+	if ((trakerlist.getAllTraker()) != null && (trakerlist.getAllTraker().size() > 0)) {
+			trakerlist.editTraker(0);
+		}
 		
 		return "timetraker"; 
 	}
