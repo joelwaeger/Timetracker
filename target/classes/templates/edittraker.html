@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css"rel="stylesheet"></link>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Edit Traker</title>
+</head>
+<body>
+	<form action="#" th:action="@{/edit}" th:object="${traker}" method="post" class="col-sm-4"> <!--  th:action="@{/add-traker}" th:object="${newtraker}"  -->
+		<div class="form-group">
+			<label for="titelId">titel:</label> 
+			<input type="text" class="form-control" placeholder="titel" id="titelId" > <!--  th:field="*{titel}" -->
+			<label for="descriptionId">Description:</label>
+			<input type="text" class="form-control" placeholder="description "id="descriptionId" ><!--  th:field="*{description}"-->
+			<label for="sel1">Link to Jiratask:</label> 
+			<input type="text" class="form-control" placeholder="link to Jiratask " id="linkId" > <!--th:field="*{link}">   -->
+			<br>
+		</div>
+		<p>
+			<a href="timetraker"> 
+			<input type="submit" class="btn btn-success" value="Hinzufügen" />
+			</a>
+		</p>
+	</form> 
+</body>
+</html>

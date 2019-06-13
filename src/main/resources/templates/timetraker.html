@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="design.css"></link>
+<link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css"
+	rel="stylesheet"></link>
+<title>Time Traker</title>
+</head>
+<body>
+	<nav>
+		<div>
+			<ul id="nav-bar">
+				<li class="nav-li" id="title">
+					<h2>Timetraker</h2>
+				</li>
+				<li class="nav-li">
+					<a href="/newtraker">
+						<input type="button" value="New Traker"/>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div id="list">
+		<div class="col-sm-2" th:switch="${listOfTraker}">
+			<h4 th:case="null">No Traker available yet!</h4>
+			<table class="table table-striped" th:case="*">
+				<thead>
+					<tr>
+						<th>Titel</th>
+						<th>Beschreibung</th>
+						<th id="link">Link</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="traker : ${listOfTraker}">
+						<td th:text="${traker.titel}"></td>
+						<td th:text="${traker.description}"></td>
+						<td th:text="${traker.link}"></td>
+						<td><a class="btn btn-info" href="/start">00:00:00</a></td>
+						<td><a class="btn btn-info" style="color:white;" href="clone">Klonen</a></td>
+						<td><a class="btn btn-info" href="/edittraker">Bearbeiten</a></td>
+						<td><a class="btn btn-warning" href="delete-traker">Löschen</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<footer id="footer">
+		<div id="totaltime">Total Time 00:00:00</div>
+		<button id="report" class="button">Send Report</button>
+	</footer>
+</body>
+</html>
