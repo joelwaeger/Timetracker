@@ -41,14 +41,14 @@ public class TimerGroup implements Timer
         return this.timers.stream().anyMatch(Timer::hasStarted);
     }
 
-    @Override
-    public Optional<Long> stop()
-    {
-        return this.timers.stream()
-                .map(Timer::stop)
-                .flatMap(Optional::stream)
-                .findAny();
-    }
+//    @Override
+//    public Optional<Long> stop()
+//    {
+//        return this.timers.stream()
+//                .map(Timer::stop)
+//                .flatMap(Optional::stream)
+//                .findAny();
+//    }
 
     @Override
     public long getDuration()
@@ -59,23 +59,23 @@ public class TimerGroup implements Timer
                 .orElse(0L);
     }
 
-    @Override
-    public Optional<Long> getStartTime()
-    {
-        return this.timers.stream()
-                .map(Timer::getStartTime)
-                .flatMap(Optional::stream)
-                .reduce(Long::min);
-    }
+//    @Override
+//    public Optional<Long> getStartTime()
+//    {
+//        return this.timers.stream()
+//                .map(Timer::getStartTime)
+//                .flatMap(Optional::stream)
+//                .reduce(Long::min);
+//    }
 
-    @Override
-    public Optional<Long> getEndTime()
-    {
-        return this.timers.stream()
-                .map(Timer::getEndTime)
-                .flatMap(Optional::stream)
-                .reduce(Long::max);
-    }
+//    @Override
+//    public Optional<Long> getEndTime()
+//    {
+//        return this.timers.stream()
+//                .map(Timer::getEndTime)
+//                .flatMap(Optional::stream)
+//                .reduce(Long::max);
+//    }
 
     @JsonIgnore
     @Override
@@ -88,4 +88,22 @@ public class TimerGroup implements Timer
                 .distinct()
                 .collect(Collectors.toList());
     }
+
+	@Override
+	public Optional<Long> stop() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Long> getStartTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Long> getEndTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -2,9 +2,6 @@ package ch.swisscom.Timetracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import org.springframework.stereotype.Service;
 
@@ -13,9 +10,9 @@ public class Trakerlist {
 	private Traker foundTraker;
 	// Creating the list for the trakers
 	public ArrayList<Traker> traker = new ArrayList<>(Arrays.asList(
-			new Traker(1, "Admin", "für Pausen und für auf dem internet surfen",
+			new Traker("Admin", "für Pausen und für auf dem internet surfen",
 					"link to something"),
-			new Traker(2, "T", "None", "no link")));
+			new Traker("T", "None", "no link")));
 
 	// Method to take all Traker
 	public ArrayList<Traker> getAllTraker() {
@@ -58,7 +55,7 @@ public class Trakerlist {
 	}
 	
 	//edit a traker
-	public   editTraker(long id) {
+	public   ArrayList<Traker> editTraker(long id) {
 		/*Man drückt einen knopf und wird auf eine neue Seite geleitet, wo man den traker
 		bearbeiten kann, der ersetzt dann den alten Traker.
 		*/
